@@ -1,0 +1,32 @@
+<% provide(:title, "Edit") %>
+<% provide(:class_text, 'article--edit') %>
+<% provide(:button_text, '更新する') %>
+<h1>記事の編集</h1>
+
+<div class="container">
+  <div class="col-lg-8 col-lg-offset-4">
+    <%= form_with(model: @article, url: user_article_path(current_user, @article), local: true, multipart: true) do |f| %> 
+      <%= render 'shared/error_messages', object: @article %> 
+
+      <div class="form-group">
+        <%= f.label :タイトル, class: "label-#{yield(:class_text)}" %>
+        <%= f.text_field :title, class: "form-control" %>
+      </div>
+      
+      <div class="form-group">
+        <%= f.label :内容, class: "label-#{yield(:class_text)}" %>
+        <%= f.text_area :content, class: "form-control" %>
+      </div>
+        
+      <div class="form-group">
+        <%= f.label :画像, class: "label-#{yield(:class_text)}" %>
+        <%= f.file_field :image, class: "form-control" %>
+      </div>
+        
+      <%= f.submit yield(:button_text), class: "btn btn-primary btn-block btn-#{yield(:class_text)}" %>
+    <% end %>
+
+    <%= link_to "戻る", user_articles_path(current_user) %>
+  
+  </div>
+</div>
