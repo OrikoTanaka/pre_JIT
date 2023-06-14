@@ -8,8 +8,9 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import 'bootstrap'
-
+//= require rails-ujs
 
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+

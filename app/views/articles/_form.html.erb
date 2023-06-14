@@ -1,0 +1,23 @@
+<%= form_with(model: article, local: true, multipart: true) do |f| %> 
+ <%= render 'shared/error_messages', object: @article %> 
+
+  <div class="form-group">
+    <%= f.label :title, class: "label-#{yield(:class_text)}" %>
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :content, class: "label-#{yield(:class_text)}" %>
+    <%= f.text_area :content, class: "form-control" %>
+  </div>
+    
+  <div class="form-group">
+    <%= f.label :image, class: "label-#{yield(:class_text)}" %>
+    <%= f.file_field :image, class: "form-control" %>
+  </div>
+    
+  <%= f.submit yield(:button_text), class: "btn btn-primary btn-block btn-#{yield(:class_text)}" %>
+<% end %>
+
+<%= link_to "戻る", user_articles_path(current_user) %>
+  

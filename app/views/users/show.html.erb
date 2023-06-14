@@ -2,9 +2,10 @@
   <div class="title">
     <h1>Dash Boads</h1>
   </div>
-  <div>
+  <div class="button-dashboard">
     <h2><%= current_user.name %></h2><br>
-    <%= link_to "編集", "#", class: "btn btn-lg btn-primary" %><br>
-    <%= link_to "ログアウト", "#", class: "btn btn-lg btn-warning" %>
+    <%= link_to "記事一覧", user_articles_path(current_user), class: "btn btn-lg btn-primary" %><br>
+    <%= link_to "編集", edit_user_registration_path(current_user), class: "btn btn-lg btn-primary" %><br>
+    <%= button_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-lg btn-warning" %>
   </div>
 </div>
